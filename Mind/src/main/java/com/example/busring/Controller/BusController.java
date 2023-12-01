@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 
 @Controller
-@RequestMapping("/")
 @CrossOrigin
 public class BusController {
 
@@ -21,5 +20,17 @@ public class BusController {
     @ResponseBody
     @RequestMapping("/getAll1")
     public List<bus> getAll() {return busService.getAll();}
+
+    @RequestMapping("/busjoin")
+    public String bus( ){
+        return "busjoin";
+    }
+
+    @RequestMapping("/busregi")
+    public String join(bus b){
+        busService.insertOne(b);
+
+        return "redirect:/busjoin";
+    }
 
 }

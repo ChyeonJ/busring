@@ -1,9 +1,6 @@
 package com.example.busring.dto;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class bus {
@@ -11,9 +8,11 @@ public class bus {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int num;
+    @Column
     private String plate;
+    @Column
     private String bus_name;
-    private String name;
+
 
     public int getNum() {
         return num;
@@ -39,13 +38,6 @@ public class bus {
         this.bus_name = bus_name;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
 
 }
