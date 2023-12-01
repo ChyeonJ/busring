@@ -23,4 +23,5 @@ public class MemberSm implements MemberService{
 
         repository.save(memberDTO);
     }
+
 }
