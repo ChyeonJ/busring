@@ -2,13 +2,10 @@ package com.example.busring.Controller;
 
 import com.example.busring.Service.MemberService;
 import com.example.busring.dto.MemberDTO;
-import org.dom4j.rule.Mode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @Controller
 @RequestMapping("/")
@@ -27,7 +24,7 @@ public class MemberController {
 
     @RequestMapping("")
     public String main(){
-        return "login";
+        return "main";
     }
 
     @RequestMapping("signup")
@@ -37,9 +34,9 @@ public class MemberController {
     }
 
     @RequestMapping("register")
-    public String join(MemberDTO mdto){
+    public String join(MemberDTO memberDTO){
 
-        memberService.insertOne(mdto);
+        memberService.insertOne(memberDTO);
 
         return "redirect:/signup";
     }
@@ -62,9 +59,9 @@ public class MemberController {
     }
 
     @RequestMapping("update")
-    public String update(MemberDTO mdto){
-       // memberService.updateOne(num);
-        return "signup";
+    public String update(MemberDTO memberDTO){
+        memberService.updateOne(memberDTO);
+        return "redirect:/signup";
     }
 
 

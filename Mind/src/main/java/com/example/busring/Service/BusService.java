@@ -11,4 +11,10 @@ public interface BusService {
 
     public void insertOne(bus b);
 
+    void deleteOne(long num);
+
+    public List<bus> selectOne(long num);
+
+    void updateOne(bus b);
+
 }

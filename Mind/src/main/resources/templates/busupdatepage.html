@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+  <title>수정 페이지</title>
+</head>
+<body>
+<h2>수정 페이지</h2>
+<!-- th:object="${memberOne}" 사용하려 했으나 th:field, th:value {num}으로 표기 시 에러 발생함-->
+<form method="post" action="/busupdate"  th:object="${busOne}">
+  <label th:for="num">번호:</label>
+  <input type="text" id="num" name="num" readonly th:field="*{num}"><br><br>
+  <label for="bus_name">버스 이름:</label>
+  <input type="text" id="bus_name" name="bus_name" th:field="*{bus_name}" ><br><br>
+  <label for="plate">번호판:</label>
+  <input type="text" id="plate" name="plate" th:field="*{plate}"><br><br>
+  <input type="submit" value="수정">
+  <a href="/signup"><input type="button" value="취소"></a>
+</form>
+</body>
+</html>

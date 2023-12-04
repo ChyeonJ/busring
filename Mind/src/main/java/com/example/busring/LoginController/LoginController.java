@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class LoginController {
     @GetMapping("/login")
     public String loginPage() {
-        return "login"; // Thymeleaf 템플릿 이름
+        return "main"; // Thymeleaf 템플릿 이름
     }
 
     @PostMapping("/login")

@@ -35,4 +35,23 @@ public class BusController {
         return "redirect:/busjoin";
     }
 
+    @RequestMapping("/busdelete")
+    public String delete(long num){
+        busService.deleteOne(num);
+        return "redirect:/busjoin";
+    }
+
+    @RequestMapping("/busupdatepage")
+    public String updatepage(long num, Model model){
+        model.addAttribute("busOne",busService.selectOne(num).get(0));
+        return "busupdatepage";
+    }
+
+    @RequestMapping("/busupdate")
+    public String updateOne(bus b){
+        busService.updateOne(b);
+        return "redirect:/busjoin";
+    }
+
+
 }

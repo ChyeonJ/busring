@@ -32,4 +32,9 @@ public class MemberSm implements MemberService{
         return repository.selectOne(num);
     }
 
+    @Override
+    public void updateOne(MemberDTO memberDTO){
+        repository.save(memberDTO);
+    }
+
 }

@@ -10,7 +10,7 @@ public class businfo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int num;
+    private long num;
     @Column
     private String driver;  //운전자
     @Column
@@ -29,11 +29,11 @@ public class businfo {
     private LocalDateTime stoptime; //도착 시간
 
 
-    public int getNum() {
+    public long getNum() {
         return num;
     }
 
-    public void setNum(int num) {
+    public void setNum(long num) {
         this.num = num;
     }
 

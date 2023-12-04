@@ -7,18 +7,18 @@ public class bus {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int num;
+    private long num;
     @Column
     private String plate;
     @Column
     private String bus_name;
 
 
-    public int getNum() {
+    public long getNum() {
         return num;
     }
 
-    public void setNum(int num) {
+    public void setNum(long num) {
         this.num = num;
     }
 

@@ -12,16 +12,13 @@
     <input type="text" id="plate" name="plate"><br><br>
     <input type="submit" value="등록">
 </form>
-    <label> 번호 </label>
-    <label> 번호판 </label>
-    <label> 버스이름 </label>
 <table>
     <tr th:each="busAll : ${busList}">
         <td th:text = "${busAll.num}"></td>
         <td th:text = "${busAll.plate}"></td>
         <td th:text = "${busAll.bus_name}"></td>
-        <td><a th:href="@{/delete(num=${busAll.num})}">삭제</a></td>
-        <td><a th:href="@{/update(num=${busAll.num})}">수정</a></td>
+        <td><a th:href="@{/busdelete(num=${busAll.num})}">삭제</a></td>
+        <td><a th:href="@{/busupdatepage(num=${busAll.num})}">수정</a></td>
     </tr>
 </table>
 </body>

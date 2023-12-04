@@ -15,6 +15,8 @@ public interface MemberService {
 
     public List<MemberDTO> selectOne(long num);
 
+    void updateOne(MemberDTO memberDTO);
+
 
     //public void deleteOne(MemberDTO num);
 
