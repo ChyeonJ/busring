@@ -56,9 +56,15 @@ public class MemberController {
         //List<MemberDTO> a = memberService.selectOne(num);
         //System.out.println(a.get(0).getNum());
       //model.addAttribute("memberOne", memberService.selectOne(num));
-      model.addAttribute("memberOne", memberService.selectOne(num));
-      //System.out.println(model.addAttribute("memberOne", memberService.selectOne(num)));
+        //System.out.println(model.addAttribute("memberOne", memberService.selectOne(num)));
+      model.addAttribute("memberOne", memberService.selectOne(num).get(0));
         return "updatepage";
+    }
+
+    @RequestMapping("update")
+    public String update(MemberDTO mdto){
+       // memberService.updateOne(num);
+        return "signup";
     }
 
 
