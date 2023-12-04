@@ -1,9 +1,6 @@
 package com.example.busring.dto;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class MemberDTO {
@@ -21,6 +18,10 @@ public class MemberDTO {
     private String phone;
 
     private String type;
+
+    @ManyToOne
+    @JoinColumn(name = "businfo_num")
+    private businfo businfo;
 
     public long getNum() {
         return num;
@@ -68,5 +69,13 @@ public class MemberDTO {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public com.example.busring.dto.businfo getBusinfo() {
+        return businfo;
+    }
+
+    public void setBusinfo(com.example.busring.dto.businfo businfo) {
+        this.businfo = businfo;
     }
 }

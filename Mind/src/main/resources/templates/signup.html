@@ -20,9 +20,11 @@
 </form>
 <table>
   <tr th:each="memberAll : ${memberList}">
-    <td th:text = "${memberAll.num}"></td>
-    <td th:text = "${memberAll.id}"></td>
-    <td th:text = "${memberAll.name}"></td>
+    <td th:text = "${memberAll.num}"></td>&nbsp;&nbsp;
+    <td th:text = "${memberAll.id}"></td>&nbsp;&nbsp;
+    <td th:text = "${memberAll.name}"></td>&nbsp;&nbsp;
+    <td th:text = "${memberAll.type}"></td>&nbsp;&nbsp;
+    <td><a th:href="@{/useing(num=${memberAll.num})}">사용</a></td>
     <td><a th:href="@{/delete(num=${memberAll.num})}">삭제</a></td>
     <td><a th:href="@{/updatepage(num=${memberAll.num})}">수정</a></td>
   </tr>

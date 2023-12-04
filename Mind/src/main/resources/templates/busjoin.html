@@ -17,6 +17,7 @@
         <td th:text = "${busAll.num}"></td>
         <td th:text = "${busAll.plate}"></td>
         <td th:text = "${busAll.bus_name}"></td>
+
         <td><a th:href="@{/busdelete(num=${busAll.num})}">삭제</a></td>
         <td><a th:href="@{/busupdatepage(num=${busAll.num})}">수정</a></td>
     </tr>

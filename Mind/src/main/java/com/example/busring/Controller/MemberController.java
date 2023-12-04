@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/")
 @CrossOrigin
@@ -41,6 +43,33 @@ public class MemberController {
         return "redirect:/signup";
     }
 
+    @RequestMapping("/useing")
+    public String uesing(Model model, long num) {
+        List<MemberDTO> memberDTO = memberService.selectOne(num);
+
+        if(!memberDTO.isEmpty()) {
+            MemberDTO useOne = memberDTO.get(0);
+            model.addAttribute("useOne", useOne);
+
+            switch (useOne.getType()){
+                case "학생" :
+                    return "busring_cus";
+                case "교수" :
+                    return "busring_cus";
+                case "운전사" :
+                    return "busring_dri";
+                case "관리자" :
+                    return "busring_com";
+                default:
+                    return "signup";
+            }
+        } else {
+            return "signup";
+        }
+        //model.addAttribute("useOne", memberService.selectOne(num).get(0));
+
+    }
+
     //?num={num}
     @RequestMapping("delete")
     public String delete(long num){
@@ -50,10 +79,6 @@ public class MemberController {
 
     @RequestMapping("updatepage")
     public String updatePage(long num, Model model){
-        //List<MemberDTO> a = memberService.selectOne(num);
-        //System.out.println(a.get(0).getNum());
-      //model.addAttribute("memberOne", memberService.selectOne(num));
-        //System.out.println(model.addAttribute("memberOne", memberService.selectOne(num)));
       model.addAttribute("memberOne", memberService.selectOne(num).get(0));
         return "updatepage";
     }

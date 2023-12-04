@@ -11,22 +11,16 @@ public class businfo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long num;
-    @Column
     private String driver;  //운전자
-    @Column
     private String busname; //버스 이름 신구 1호
-    @Column
     private String plate; //번호판
-    @Column
     private String status;  //현재 상태 ex(출발, 도착)
-    @Column
     private String destination; //목적지
-    @Column
     @CreatedDate
     private LocalDateTime starttime; //출발 시간
-    @Column
     @CreatedDate
     private LocalDateTime stoptime; //도착 시간
+
 
 
     public long getNum() {

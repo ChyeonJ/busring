@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 
 @Controller
+@RequestMapping("/")
 @CrossOrigin
 public class BusController {
 
@@ -22,32 +23,32 @@ public class BusController {
 //    @RequestMapping("/getAll1")
 //    public List<bus> getAll() {return busService.getAll();}
 
-    @RequestMapping("/busjoin")
+    @RequestMapping("busjoin")
     public String bus(Model model){
         model.addAttribute("busList", busService.getAll());
         return "busjoin";
     }
 
-    @RequestMapping("/busregi")
+    @RequestMapping("busregi")
     public String join(bus b){
         busService.insertOne(b);
 
         return "redirect:/busjoin";
     }
 
-    @RequestMapping("/busdelete")
+    @RequestMapping("busdelete")
     public String delete(long num){
         busService.deleteOne(num);
         return "redirect:/busjoin";
     }
 
-    @RequestMapping("/busupdatepage")
+    @RequestMapping("busupdatepage")
     public String updatepage(long num, Model model){
         model.addAttribute("busOne",busService.selectOne(num).get(0));
         return "busupdatepage";
     }
 
-    @RequestMapping("/busupdate")
+    @RequestMapping("busupdate")
     public String updateOne(bus b){
         busService.updateOne(b);
         return "redirect:/busjoin";
