@@ -53,7 +53,6 @@ public class MemberController {
 
             switch (useOne.getType()){
                 case "학생" :
-                    return "busring_cus";
                 case "교수" :
                     return "busring_cus";
                 case "운전사" :

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+  <tr th:each="busAll : ${busList}">
+    <td th:text = "${busAll.num}"></td>
+    <td th:text = "${busAll.plate}"></td>
+    <td th:text = "${busAll.bus_name}"></td>
+
+    <td><a th:href="@{/businfo_join(num=${busAll.num})}">선택</a></td>
+    <td><a href="signup">취소</a></td>
+  </tr>
+</table>
+</body>
+</html>

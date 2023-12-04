@@ -1,6 +1,7 @@
 package com.example.busring.Controller;
 
 import com.example.busring.Service.BusService;
+import com.example.busring.dto.MemberDTO;
 import com.example.busring.dto.bus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,6 +30,12 @@ public class BusController {
         return "busjoin";
     }
 
+    @RequestMapping("busring_dri/choice")
+    public String busAll(Model model){
+        model.addAttribute("busList", busService.getAll());
+        return "choice";
+    }
+
     @RequestMapping("busregi")
     public String join(bus b){
         busService.insertOne(b);
@@ -42,10 +49,17 @@ public class BusController {
         return "redirect:/busjoin";
     }
 
+
     @RequestMapping("busupdatepage")
     public String updatepage(long num, Model model){
         model.addAttribute("busOne",busService.selectOne(num).get(0));
         return "busupdatepage";
+    }
+
+    @RequestMapping("businfo_join")
+    public String businfo(long num, Model model){
+        model.addAttribute("busOne", busService.selectOne(num).get(0));
+        return "businfo_join";
     }
 
     @RequestMapping("busupdate")
