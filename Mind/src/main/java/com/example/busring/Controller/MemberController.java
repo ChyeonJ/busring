@@ -2,6 +2,7 @@ package com.example.busring.Controller;
 
 import com.example.busring.Service.MemberService;
 import com.example.busring.dto.MemberDTO;
+import org.dom4j.rule.Mode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -41,6 +42,23 @@ public class MemberController {
         memberService.insertOne(mdto);
 
         return "redirect:/signup";
+    }
+
+    //?num={num}
+    @RequestMapping("delete")
+    public String delete(long num){
+        memberService.deleteOne(num);
+        return "redirect:/signup";
+    }
+
+    @RequestMapping("updatepage")
+    public String updatePage(long num, Model model){
+        //List<MemberDTO> a = memberService.selectOne(num);
+        //System.out.println(a.get(0).getNum());
+      //model.addAttribute("memberOne", memberService.selectOne(num));
+      model.addAttribute("memberOne", memberService.selectOne(num));
+      //System.out.println(model.addAttribute("memberOne", memberService.selectOne(num)));
+        return "updatepage";
     }
 
 

@@ -10,7 +10,7 @@ public class MemberDTO {
 
     @Id //pk
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int num;
+    private long num;
 
     private String name;
 
@@ -22,11 +22,11 @@ public class MemberDTO {
 
     private String type;
 
-    public int getNum() {
+    public long getNum() {
         return num;
     }
 
-    public void setNum(int num) {
+    public void setNum(long num) {
         this.num = num;
     }
 

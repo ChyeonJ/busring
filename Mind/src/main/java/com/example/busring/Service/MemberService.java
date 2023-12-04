@@ -2,8 +2,8 @@ package com.example.busring.Service;
 
 import com.example.busring.dto.MemberDTO;
 
-import javax.persistence.Id;
 import java.util.List;
+import java.util.Optional;
 
 public interface MemberService {
 
@@ -11,7 +11,12 @@ public interface MemberService {
 
     public void insertOne(MemberDTO memberDTO);
 
-    //public void deleteOne(int num);
+    void deleteOne(long num);
+
+    public List<MemberDTO> selectOne(long num);
+
+
+    //public void deleteOne(MemberDTO num);
 
 
 }
