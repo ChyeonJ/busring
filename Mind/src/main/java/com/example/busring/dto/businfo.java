@@ -11,6 +11,8 @@ public class businfo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long num;
+    private String bus_name;
+    private String plate;
     private String status;  //현재 상태 ex(출발, 도착, 대기)
     private String destination; //목적지
     @CreatedDate
@@ -69,5 +71,21 @@ public class businfo {
 
     public void setB(bus b) {
         this.b = b;
+    }
+
+    public String getBus_name() {
+        return bus_name;
+    }
+
+    public void setBus_name(String bus_name) {
+        this.bus_name = bus_name;
+    }
+
+    public String getPlate() {
+        return plate;
+    }
+
+    public void setPlate(String plate) {
+        this.plate = plate;
     }
 }

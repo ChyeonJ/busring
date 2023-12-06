@@ -36,6 +36,12 @@ public class BusController {
         return "choice";
     }
 
+    @RequestMapping("businfo_join")
+    public String businfo_join(Model model, long num){
+        model.addAttribute("busList", busService.selectOne(num).get(0));
+        return "businfo_join";
+    }
+
     @RequestMapping("busregi")
     public String join(bus b){
         busService.insertOne(b);
@@ -56,11 +62,6 @@ public class BusController {
         return "busupdatepage";
     }
 
-    @RequestMapping("businfo_join")
-    public String businfo(long num, Model model){
-        model.addAttribute("busOne", busService.selectOne(num).get(0));
-        return "businfo_join";
-    }
 
     @RequestMapping("busupdate")
     public String updateOne(bus b){

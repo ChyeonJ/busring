@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>버스 알림이</title>
 </head>
 <body>
 <table>
@@ -10,7 +10,6 @@
     <td th:text = "${busAll.num}"></td>
     <td th:text = "${busAll.plate}"></td>
     <td th:text = "${busAll.bus_name}"></td>
-
     <td><a th:href="@{/businfo_join(num=${busAll.num})}">선택</a></td>
     <td><a href="signup">취소</a></td>
   </tr>

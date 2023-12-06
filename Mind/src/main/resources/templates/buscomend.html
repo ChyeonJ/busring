@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>버스 알림이</title>
+</head>
+<body>
+<h2 th:text="${businfo.bus_name} + '&nbsp; 운행을 시작합니다.'"></h2>
+<table>
+    <td th:objcet="${businfo}">
+        <tr th:text="${businfo.status}"></tr>
+        <tr th:text="${businfo.destination}"></tr>
+    </td>
+</table>
+<form th:action="@{/status_update(num=${businfo.num})}" method="post">
+<input type="submit" name = "status" value="출발">
+<input type="submit" name = "status" value="대기">
+<input type="submit" name = "status" value="도착">
+</form><br><br>
+
+<form th:action="@{/des_update(num=${businfo.num})}" method="post">
+<input type="submit" name = "des" value="모란">
+<input type="submit" name = "des" value="남한산성">
+<input type="submit" name = "des" value="학교">
+</form>
+</body>
+</html>
