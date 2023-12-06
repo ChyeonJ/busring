@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <title>버스 알림이</title>
   <meta charset="UTF-8">
@@ -33,26 +32,21 @@
 
 <h2 th:text="${useOne.name} + '&nbsp; 님 안녕하세요!'"></h2>
 
+<a th:href="@{/refactor/{num}(num=${useOne.num})}"><input type="button" value="새로고침"></a>
 <table>
   <thead>
   <tr>
     <th>상태</th>
-    <th>컬럼2</th>
-    <th>컬럼3</th>
+    <th>목적지</th>
+    <th>시간</th>
   </tr>
   </thead>
   <tbody>
-  <tr>
-    <td>데이터1</td>
-    <td>데이터2</td>
-    <td>데이터3</td>
+  <tr th:each="businfo : ${businfo}">
+    <td th:text="${businfo.status}"></td>
+    <td th:text="${businfo.destination}"></td>
+    <td th:text="${businfo.time}"></td>
   </tr>
-  <tr>
-    <td>데이터4</td>
-    <td>데이터5</td>
-    <td>데이터6</td>
-  </tr>
-  <!-- 추가적인 데이터 행들을 원하면 이어서 추가하세요. -->
   </tbody>
 </table>
 

@@ -1,8 +1,11 @@
 package com.example.busring.Controller;
 
+import com.example.busring.Service.BusInfoService;
 import com.example.busring.Service.BusService;
+import com.example.busring.Service.MemberService;
 import com.example.busring.dto.MemberDTO;
 import com.example.busring.dto.bus;
+import com.example.busring.dto.businfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,14 +22,27 @@ public class BusController {
 
     @Autowired
     private BusService busService;
+    @Autowired
+    private MemberService memberService;
+    @Autowired
+    private BusInfoService busInfoService;
 
 //    @ResponseBody
 //    @RequestMapping("/getAll1")
 //    public List<bus> getAll() {return busService.getAll();}
+    @RequestMapping("adminPage")
+    public String adminPage(Model model){
+        List<MemberDTO> members = memberService.getAll();
+        List<bus> buss = busService.getAll();
+        List<businfo> infos = busInfoService.getAll();
+        model.addAttribute("memberList",members);
+        model.addAttribute("busList",buss);
+        model.addAttribute("info",infos);
+        return "adminPage";
+    }
 
     @RequestMapping("busjoin")
-    public String bus(Model model){
-        model.addAttribute("busList", busService.getAll());
+    public String bus(){
         return "busjoin";
     }
 
@@ -46,13 +62,13 @@ public class BusController {
     public String join(bus b){
         busService.insertOne(b);
 
-        return "redirect:/busjoin";
+        return "redirect:/adminPage";
     }
 
     @RequestMapping("busdelete")
     public String delete(long num){
         busService.deleteOne(num);
-        return "redirect:/busjoin";
+        return "redirect:http://localhost:8080/adminPage";
     }
 
 
@@ -66,7 +82,7 @@ public class BusController {
     @RequestMapping("busupdate")
     public String updateOne(bus b){
         busService.updateOne(b);
-        return "redirect:/busjoin";
+        return "redirect:/adminPage";
     }
 
 

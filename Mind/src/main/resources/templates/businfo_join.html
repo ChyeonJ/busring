@@ -3,27 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <title>버스 알림이</title>
+    <style>
+        body {
+            text-align: center;
+            margin: 50px;
+            font-family: Arial, sans-serif;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        label {
+            margin-top: 10px;
+            color: #1e90ff;
+            font-weight: bold;
+        }
+
+        input, select {
+            padding: 10px;
+            margin: 5px 0;
+            width: 250px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input[type="submit"], input[type="button"] {
+            background-color: #1e90ff;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover, input[type="button"]:hover {
+            background-color: #0066cc;
+        }
+    </style>
 </head>
 <body>
 <h2 th:text="${busList.bus_name}"></h2>
-<form action="/businfo_create" th:object="${busList}">
+<form action="/businfo_create" th:object="${busList}" method="post">
     <label for="bus_name">버스 이름</label>
     <input type="text" id="bus_name" name="bus_name" th:field="*{bus_name}" readonly><br><br>
     <label for="plate">번호판</label>
-    <input type="text" id="plate" nmae="plate" th:field="*{plate}" readonly><br><br>
+    <input type="text" id="plate" name="plate" th:field="*{plate}" readonly><br><br>
     <label for="status">현재 상태</label>
     <select name="status" id="status">
         <option value="출발">출발</option>
         <option value="대기">대기</option>
-    </select>
+    </select><br><br>
     <label for="destination">목적지</label>
     <select name="destination" id="destination">
         <option value="단대오거리">단대오거리</option>
         <option value="남한산성">남한산성</option>
-    </select>
+    </select><br><br>
     <input type="submit" value="운행시작">
     <a href="/choice"><input type="button" value="취소"></a>
 </form>
-
 </body>
 </html>

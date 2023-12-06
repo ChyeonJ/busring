@@ -14,4 +14,5 @@ public interface BiRepository extends JpaRepository<businfo, Long> {
     @Query("select bi from businfo bi where bi.num = :num")
     List<businfo> selectOne(@Param("num") long num);
 
+
 }

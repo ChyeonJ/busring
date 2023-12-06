@@ -1,21 +1,64 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<html>
 <head>
   <title>수정 페이지</title>
+  <style>
+    body {
+      text-align: center;
+      margin: 50px;
+      font-family: Arial, sans-serif;
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    label {
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    input {
+      padding: 10px;
+      margin-bottom: 15px;
+      width: 300px;
+      font-size: 16px;
+    }
+
+    input[type="submit"], input[type="button"] {
+      background-color: #1e90ff;
+      color: #fff;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      padding: 10px;
+      width: 150px;
+    }
+
+    input[type="submit"]:hover, input[type="button"]:hover {
+      background-color: #0066cc;
+    }
+  </style>
 </head>
 <body>
 <h2>수정 페이지</h2>
-<!-- th:object="${memberOne}" 사용하려 했으나 th:field, th:value {num}으로 표기 시 에러 발생함-->
-<form method="post" action="/busupdate"  th:object="${busOne}">
-  <label th:for="num">번호:</label>
-  <input type="text" id="num" name="num" readonly th:field="*{num}"><br><br>
+<form method="post" action="/busupdate" th:object="${busOne}">
+  <label for="num">번호:</label>
+  <input type="text" id="num" name="num" readonly th:field="*{num}"><br>
   <label for="bus_name">버스 이름:</label>
-  <input type="text" id="bus_name" name="bus_name" th:field="*{bus_name}" ><br><br>
+  <input type="text" id="bus_name" name="bus_name" th:field="*{bus_name}"><br>
   <label for="plate">번호판:</label>
-  <input type="text" id="plate" name="plate" th:field="*{plate}"><br><br>
+  <input type="text" id="plate" name="plate" th:field="*{plate}"><br>
   <input type="submit" value="수정">
-  <a href="/signup"><input type="button" value="취소"></a>
+  <a href="/adminPage"><input type="button" value="취소"></a>
 </form>
 </body>
 </html>

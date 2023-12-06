@@ -3,25 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <title>버스 알림이</title>
+    <style>
+        body {
+            text-align: center;
+            margin: 50px;
+            font-family: Arial, sans-serif;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        table {
+            width: 50%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            font-size: 16px;
+        }
+
+        td, tr {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        td {
+            font-weight: bold;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        input[type="submit"] {
+            margin: 10px 0;
+            padding: 10px;
+            width: 150px;
+            background-color: #1e90ff;
+            color: #fff;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0066cc;
+        }
+    </style>
 </head>
 <body>
-<h2 th:text="${businfo.bus_name} + '&nbsp; 운행을 시작합니다.'"></h2>
+<h2 th:text="${businfo.bus_name} + ' 운행을 시작합니다.'"></h2>
 <table>
-    <td th:objcet="${businfo}">
-        <tr th:text="${businfo.status}"></tr>
-        <tr th:text="${businfo.destination}"></tr>
-    </td>
+    <tr>
+        <td>운행 상태</td>
+        <td th:text="${businfo.status}"></td>
+    </tr>
+    <tr>
+        <td>목적지</td>
+        <td th:text="${businfo.destination}"></td>
+    </tr>
 </table>
+
 <form th:action="@{/status_update(num=${businfo.num})}" method="post">
-<input type="submit" name = "status" value="출발">
-<input type="submit" name = "status" value="대기">
-<input type="submit" name = "status" value="도착">
+    <input type="submit" name="status" value="출발">
+    <input type="submit" name="status" value="대기">
+    <input type="submit" name="status" value="도착">
 </form><br><br>
 
 <form th:action="@{/des_update(num=${businfo.num})}" method="post">
-<input type="submit" name = "des" value="모란">
-<input type="submit" name = "des" value="남한산성">
-<input type="submit" name = "des" value="학교">
+    <input type="submit" name="des" value="모란">
+    <input type="submit" name="des" value="남한산성">
+    <input type="submit" name="des" value="학교">
 </form>
+    <a href="/main"><input type="button" value="운행종료"></a>
 </body>
 </html>

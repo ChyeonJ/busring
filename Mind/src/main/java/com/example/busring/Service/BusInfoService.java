@@ -13,5 +13,7 @@ public interface BusInfoService {
 
     public List<businfo> selectOne(long num);
 
+    List<businfo> getAll();
+
 
 }

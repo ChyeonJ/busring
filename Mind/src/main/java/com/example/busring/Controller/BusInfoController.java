@@ -1,13 +1,14 @@
 package com.example.busring.Controller;
 
 import com.example.busring.Service.BusInfoService;
-import com.example.busring.Service.BusInfoSm;
+import com.example.busring.Service.MemberService;
 import com.example.busring.dto.MemberDTO;
 import com.example.busring.dto.businfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -20,6 +21,9 @@ public class BusInfoController {
 
     @Autowired
     private BusInfoService busInfoService;
+
+    @Autowired
+    private MemberService memberService;
 
     @RequestMapping("/businfo_create")
     public String join(businfo info, Model model) {
@@ -74,6 +78,13 @@ public class BusInfoController {
         }
         model.addAttribute("businfo",infos1);
         return "buscomend";
+    }
+
+    @RequestMapping("refactor/{num}")
+    public String getAll(Model model, @PathVariable Long num){
+        model.addAttribute("useOne", memberService.selectOne(num).get(0));
+        model.addAttribute("businfo", busInfoService.getAll());
+        return "busring_cus";
     }
 
 }
