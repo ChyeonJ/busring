@@ -49,6 +49,7 @@ public class BusInfoSm implements BusInfoService {
     @Override
     public List<businfo> getAll() {return biRepository.findAll();}
 
-
+    @Override
+    public void deleteOne(long num){biRepository.deleteById(num);}
 
 }

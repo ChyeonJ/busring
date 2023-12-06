@@ -86,6 +86,7 @@ public class MemberController {
                         case "학생":
                         case "교수":
                             model.addAttribute("useOne",member);
+                            model.addAttribute("businfo", infos);
                             return "busring_cus";
                         case "운전사":
                             model.addAttribute("useOne",member);
@@ -103,7 +104,12 @@ public class MemberController {
 
             // 로그인 실패
             model.addAttribute("error", "아이디 또는 비밀번호가 올바르지 않습니다.");
-            return "redirect:/main";
+            return "redirect:/errorA";
+        }
+
+        @RequestMapping("errorA")
+        public String error(){
+            return "errorA";
         }
     }
 

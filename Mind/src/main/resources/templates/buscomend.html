@@ -53,6 +53,27 @@
         input[type="submit"]:hover {
             background-color: #0066cc;
         }
+
+        /* 추가된 스타일 */
+        a {
+            text-decoration: none;
+        }
+
+        input[type="button"] {
+            margin: 10px 0;
+            padding: 10px;
+            width: 150px;
+            background-color: #d9534f; /* 변경된 색상 */
+            color: #fff;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input[type="button"]:hover {
+            background-color: #c9302c; /* 변경된 hover 색상 */
+        }
     </style>
 </head>
 <body>
@@ -79,6 +100,7 @@
     <input type="submit" name="des" value="남한산성">
     <input type="submit" name="des" value="학교">
 </form>
-    <a href="/main"><input type="button" value="운행종료"></a>
+
+<a th:href="@{/status_delete(num=${businfo.num})}"><input type="button" value="운행종료"></a>
 </body>
 </html>

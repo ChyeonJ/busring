@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>버스 알림이</title>
+  <script>
+    window.onload = function () {
+      // URL에서 에러 메시지 파라미터를 가져옴
+      var urlParams = new URLSearchParams(window.location.search);
+      var errorMessage = urlParams.get('error');
+
+      // 에러 메시지가 존재하면 알림창을 띄우고 로그인 페이지로 이동
+        alert('아이디 및 비밀번호 오류');
+        window.location.href = "/";
+
+    };
+  </script>
+</head>
+<body>
+</body>
+</html>

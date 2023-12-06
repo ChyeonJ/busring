@@ -86,5 +86,10 @@ public class BusInfoController {
         model.addAttribute("businfo", busInfoService.getAll());
         return "busring_cus";
     }
+    @RequestMapping("status_delete")
+    public String endOne(long num){
+        busInfoService.deleteOne(num);
+        return "redirect:/";
+    }
 
 }

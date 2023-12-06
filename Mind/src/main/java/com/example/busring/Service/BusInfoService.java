@@ -15,5 +15,6 @@ public interface BusInfoService {
 
     List<businfo> getAll();
 
+    void deleteOne(long num);
 
 }
