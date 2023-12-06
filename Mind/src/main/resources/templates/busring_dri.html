@@ -10,6 +10,16 @@
 
 <h2 th:text="${useOne.name} + '&nbsp; 님 안녕하세요!'"></h2>
 
+<form action="/busring_dri" method="post" th:object="${useOne}">
+  <label for="driver">운전자</label>
+  <input type="text" id="driver" name="driver" th:field="*{name}" readonly>
+  <label for="phone">휴대폰</label>
+  <input type="text" id="phone" name="phone" th:field="*{phone}" readonly>
+  <label for="type">타입</label>
+  <input type="text" id="type" name="type" th:field="*{type}" readonly>
+  <input type="submit" value="버스선택하기">
+</form>
+
 <a href="/busring_dri/choice"><input type="button" value="버스 선택"></a>
 
 

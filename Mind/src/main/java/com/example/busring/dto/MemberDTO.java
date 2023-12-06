@@ -19,9 +19,6 @@ public class MemberDTO {
 
     private String type;
 
-    @ManyToOne
-    @JoinColumn(name = "businfo_num")
-    private businfo businfo;
 
     public long getNum() {
         return num;
@@ -71,11 +68,4 @@ public class MemberDTO {
         this.type = type;
     }
 
-    public com.example.busring.dto.businfo getBusinfo() {
-        return businfo;
-    }
-
-    public void setBusinfo(com.example.busring.dto.businfo businfo) {
-        this.businfo = businfo;
-    }
 }

@@ -12,5 +12,6 @@ public interface JRepository extends JpaRepository<MemberDTO, Long> {
     @Query("select m from MemberDTO m where m.num = :num")
     List<MemberDTO> selectOne(@Param("num") long num);
 
+
 }
 

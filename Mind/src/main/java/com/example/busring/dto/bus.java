@@ -13,10 +13,6 @@ public class bus {
     @Column
     private String bus_name;
 
-    @ManyToOne
-    @JoinColumn(name = "businfo_num")
-    private businfo businfo;
-
 
     public long getNum() {
         return num;
@@ -42,12 +38,5 @@ public class bus {
         this.bus_name = bus_name;
     }
 
-    public com.example.busring.dto.businfo getBusinfo() {
-        return businfo;
-    }
-
-    public void setBusinfo(com.example.busring.dto.businfo businfo) {
-        this.businfo = businfo;
-    }
 
 }

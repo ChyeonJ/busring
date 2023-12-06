@@ -11,17 +11,17 @@ public class businfo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long num;
-    private String driver;  //운전자
-    private String busname; //버스 이름 신구 1호
-    private String plate; //번호판
-    private String status;  //현재 상태 ex(출발, 도착)
+    private String status;  //현재 상태 ex(출발, 도착, 대기)
     private String destination; //목적지
     @CreatedDate
-    private LocalDateTime starttime; //출발 시간
-    @CreatedDate
-    private LocalDateTime stoptime; //도착 시간
+    private LocalDateTime time; //출발, 도착 시간
+    @ManyToOne
+    @JoinColumn(name = "MemberDTO_num")
+    private MemberDTO memberDTO;
 
-
+    @ManyToOne
+    @JoinColumn(name = "bus_num")
+    private  bus b;
 
     public long getNum() {
         return num;
@@ -29,30 +29,6 @@ public class businfo {
 
     public void setNum(long num) {
         this.num = num;
-    }
-
-    public String getDriver() {
-        return driver;
-    }
-
-    public void setDriver(String driver) {
-        this.driver = driver;
-    }
-
-    public String getBusname() {
-        return busname;
-    }
-
-    public void setBusname(String busname) {
-        this.busname = busname;
-    }
-
-    public String getPlate() {
-        return plate;
-    }
-
-    public void setPlate(String plate) {
-        this.plate = plate;
     }
 
     public String getStatus() {
@@ -71,19 +47,27 @@ public class businfo {
         this.destination = destination;
     }
 
-    public LocalDateTime getStarttime() {
-        return starttime;
+    public LocalDateTime getTime() {
+        return time;
     }
 
-    public void setStarttime(LocalDateTime starttime) {
-        this.starttime = starttime;
+    public void setTime(LocalDateTime time) {
+        this.time = time;
     }
 
-    public LocalDateTime getStoptime() {
-        return stoptime;
+    public MemberDTO getMemberDTO() {
+        return memberDTO;
     }
 
-    public void setStoptime(LocalDateTime stoptime) {
-        this.stoptime = stoptime;
+    public void setMemberDTO(MemberDTO memberDTO) {
+        this.memberDTO = memberDTO;
+    }
+
+    public bus getB() {
+        return b;
+    }
+
+    public void setB(bus b) {
+        this.b = b;
     }
 }
